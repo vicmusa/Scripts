@@ -1,5 +1,6 @@
 import json
 import boto3
+import botocore.exceptions
 
 
 def lambda_handler(event, context):
@@ -12,10 +13,11 @@ def lambda_handler(event, context):
         'Format': 'CSV',
         'RegisterEndpoints': True,
         'RoleArn': 'arn:aws:iam::583980982166:role/For_Labda_Pinpoint',
-        'S3Url': 's3://pinpoint-contact-list/pinpoint_example_import.csv',
-        'SegmentId': '29419c6025514d95be565b24d12e8dac',
+        'S3Url': 's3://pinpoint-contact-list/final_contact_list.csv',
+        'SegmentId': '0b2b212be6774c91b25c9e39e1ec81ac',
     }
-)
+    )
+   
     return {
         'statusCode': 200,
         'body': json.dumps('Hello from Lambda!')
